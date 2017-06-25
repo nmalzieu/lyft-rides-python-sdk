@@ -146,10 +146,6 @@ class Request(object):
 
         token = auth_session.oauth2credential.access_token
 
-        if not self._authorization_headers_valid(token_type, token):
-            message = 'Invalid token_type or token.'
-            raise LyftIllegalState(message)
-
         headers = {
             'Authorization': ' '.join([token_type, token]),
         }
